@@ -12,6 +12,10 @@ if (!rootElement) {
 
 validateEnv();
 
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
+}
+
 createRoot(rootElement).render(
   <StrictMode>
     <AppProviders>
